@@ -1,0 +1,54 @@
+
+
+@media (min-width: 768px){
+.navbar-nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+}
+
+
+
+.logo{
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5em;
+}
+
+.active>a{
+  background-color: aqua;
+}
+ul
+{
+  list-style-type: none;
+  margin-left:5px;
+  margin-right:5px;
+}
+
+li
+{
+  list-style-type: none;
+  margin-left:5px;
+  margin-right:5px;
+}
+.nav-link {
+
+  color: beige;
+}
+
+
+nav {
+  font-family: 'Lato', sans-serif;
+  background-color: #424242;
+  position: sticky;
+  top: -2px;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  margin-bottom: 2px !important;
+}
+
+

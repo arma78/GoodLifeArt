@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "good-life-art": {
+      "hosting": {
+        "GooDLifeArt": [
+          "good-life-art"
+        ]
+      }
+    }
+  }
+}

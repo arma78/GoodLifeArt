@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="../../assets/img/Untitledmin.png" width="30" height="30"></a>
+  <button class="navbar-toggler" (click)="collapse=!collapse" type="button" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse" (click)="collapse=true" [hidden]="collapse">
+    <ul class="navbar-nav mr-auto" *ngIf="(user | async)?.uid">
+      <li class="nav-item"><a class="nav-link" routerLink="/upload">Upload</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/request-list">Customer Requests</a></li>
+    </ul>
+    <ul class="nav navbar-nav account">
+      <li class="nav-item"><a class="nav-link" routerLink="/aboutme">About me</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/contactme">Contact me</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/gallery">Art Gallery</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/ejuboxplayer">Player</a></li>
+      <li class="nav-item" *ngIf="!(user | async)?.uid"><a class="nav-link" routerLink="/login">Log In</a></li>
+      <li class="nav-item" *ngIf="(user | async)?.uid"><a class="nav-link" href="#" (click)="logOut()">Log Out</a></li>
+    </ul>
+    <ul class="nav navbar-nav list-group list-group-horizontal">
+      <li><a class="nav-link" href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+      <li><a class="nav-link" href="#" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li><a class="nav-link" href="#" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+      <li><a class="nav-link" href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+</nav>
+

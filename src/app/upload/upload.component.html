@@ -1,0 +1,47 @@
+<br/><br/>
+<h2 style="color: black; text-align: center"><b>Image Upload and Delete</b></h2>
+<label style="color: black; font-weight: bold">Select Art Category:</label>
+<select class='dropdowngall' [(ngModel)]="selectedCategory.id" (change)="onSelect($event.target.value)">
+  <option value="Select">Select</option>
+  <option *ngFor="let artcategory of artcat" value= {{artcategory.id}}>{{artcategory.name}}</option>
+</select><b style="color: red">*</b>
+<br/>
+<div>
+<label style="color: black; font-weight: bold">Select Art Sub-Category:</label>
+<select class='dropdowngall'  [(ngModel)]="selectSubVal">
+  <option value="Select">Select</option>
+  <option *ngFor="let artsubcategory of artsubcat"  value= {{artsubcategory.id}}>{{artsubcategory.name}}</option>
+</select><b style="color: red">*</b>
+</div>
+<br/>
+<textarea class='captionSUb'  minlength="399px" type="text" placeholder="Enter Caption" name="id" [(ngModel)]="id"></textarea><b style="color: red">*</b>
+<br/>
+<br/>
+<input type="file" (change)="showPreview($event)"><b style="color: red">*</b>
+<br/>
+<div class="progress" *ngIf="uploadProgress$ | async as progress">
+  <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': progress + '%' }"></div>
+</div>
+<br/>
+<button [hidden]="this.SaveDisabled" class="btn-success" (click)="save()">Save Image</button>
+<br/>
+<hr>
+
+<input type="text" name="file" [(ngModel)]="file" placeholder="Enter Caption">
+<button class="btn-success" (click)="ngOnChanges()">Search by Caption</button>
+<div class="row">
+  <div class="col-md-4" *ngFor="let file of fileUploads">
+      <div class="img-thumbnail" id="img-thumbnail">
+        <img src="{{file.url}}"alt="Lights" style="width:100%">
+        <hr id="spacer">
+        <div class="caption" id="caption">
+            <div class="row">
+                <div class="col-md-10"><p>Caption: {{file.id}}</p></div>
+                <div class="col-md-2"> <button (click)='deleteFileUpload(file)'
+                  class="btn btn-danger btn-xs" style="float: right">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

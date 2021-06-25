@@ -1,0 +1,46 @@
+<br /><br />
+
+<div class="container">
+    <div class="row"><h2 style="color: black; text-align: center"><b>Good Life Art Gallery</b></h2></div>
+  <div class="row">
+    <div class="col-sm">
+      <label style="color: black; font-weight: bold">Art Category:</label>
+      <select class='dropdowngall' [(ngModel)]="selectedCategory.id" (change)="onSelect($event.target.value)">
+        <option value="0">--Select--</option>
+        <option *ngFor="let artcategory of artcat" value={{artcategory.id}}>{{artcategory.name}}</option>
+      </select>
+    </div>
+    <div class="col-sm">
+      <label style="color: black; font-weight: bold">Art Sub-Category:</label>
+       <select class='dropdowngall'  [(ngModel)]="selectSubVal">
+        <option value="0">--Select--</option>
+        <option *ngFor="let artsubcategory of artsubcat" value={{artsubcategory.id}}>{{artsubcategory.name}}</option>
+      </select>
+    </div>
+    <div class="col-sm">
+      <button class="btn-success" (click)="ngOnChanges()">Filter Images</button>
+    </div>
+  </div>
+</div>
+<br/>
+
+<div class="row">
+  <div class="col-md-4"  *ngFor="let file of fileUploads | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <div class="img-thumbnail" id="img-thumbnail">
+      <a [routerLink]="['/image', file.key]">
+        <img src="{{file.url}}"alt="Lights"></a>
+        <hr id="spacer">
+        <div class="caption" id="caption">
+          <p><b>Caption: </b>{{file.id}}</p>
+          <p><b>Art Category: </b> {{file.category}}</p>
+          <p><b>Art Sub-Category: </b>{{file.subcategory}}</p>
+        </div>
+    </div>
+  </div>
+
+</div>
+<ngb-pagination
+[(page)]="page"
+[pageSize]="pageSize"
+[collectionSize]= "fileUploads?.length">
+</ngb-pagination>

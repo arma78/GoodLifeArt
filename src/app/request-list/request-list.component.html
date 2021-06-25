@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-4" *ngFor="let req of serReq">
+      <div class="img-thumbnail" id="img-thumbnail">
+          <div class="caption" id="caption">
+            <p><b>First Name:</b> {{req.firstName}}</p>
+            <p><b>Last Name:</b> {{req.lastName}}</p>
+            <p><b>Phone Number:</b> {{req.phoneNumber}}</p>
+            <p><b>E-mail:</b> {{req.email}}</p>
+            <p><b>City:</b> {{req.city}}</p>
+            <p><b>Date Created:</b> {{req.createdOn}}</p>
+            <p><b>Comments:</b> {{req.comments}}</p>
+            <p><b>Tatoo Type:</b> {{req.tattooType}}</p>
+            <p><b>Width in cm:</b> {{req.sizeWidth}}</p>
+            <p><b>Height in cm:</b> {{req.sizeHeight}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
